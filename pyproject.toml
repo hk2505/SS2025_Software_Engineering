@@ -5,9 +5,11 @@ description = "Default template for PDM package"
 authors = [
     {name = "Sophia", email = "sophia08n@gmail.com"},
     {name = "SN0204", email = "no5933@mci4me.at"},
+    {name = "hk2505", email = "kh8599@mci4me.at"},
 ]
 dependencies = [
     "numpy>=2.2.4",
+    "pandas>=2.2.3",
 ]
 requires-python = "==3.13.*"
 readme = "README.md"
