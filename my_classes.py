@@ -30,7 +30,7 @@ class Experiment():
     def add_supervisor(self, supervisor):
         self.supervisor = supervisor
 
-# Damit die Ausgabe im Test.py als Text ausgegeben wird und nicht nur die technische Info 
+# Damit die Ausgabe im Test.py als Text ausgegeben wird und nicht nur die technische Information
     def __str__(self):
         return (
             f"Experiment: {self.name} am {self.date}\n"
