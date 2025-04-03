@@ -11,7 +11,7 @@ class Person:
     # Subklasse Subject mit den Attributen Geschlecht, Alter und Maximalpuls
 class Subject(Person):
     def __init__(self, first_name, last_name,Geburtsdatum, sex, age,):
-        super().__init__(first_name, last_name, Geburtsdatum) #ruft direkt die Initialisierung der Superklasse auf
+        super().__init__(first_name, last_name,Geburtsdatum) #ruft direkt die Initialisierung der Superklasse auf
         self.sex = sex
         self.age = age
         self.max_hr_bpm = self.estimate_max_hr()
@@ -27,7 +27,7 @@ class Subject(Person):
     # Subklasse Supervisor mit den Attributen Vorname und Nachname  
 class Examiner(Person):
     def __init__(self, first_name, last_name, Geburtsdatum): 
-        super().__init__(first_name, last_name, Geburtsdatum) #ruft direkt die Initialisierung der Superklasse auf
+        super().__init__(first_name, last_name,Geburtsdatum) #ruft direkt die Initialisierung der Superklasse auf
 
 class Experiment:
     def __init__(self, name, date):
@@ -48,4 +48,3 @@ class Experiment:
             f"Max HR: {self.subject.max_hr_bpm}\n"
             f"Examiner: {self.examiner.first_name} {self.examiner.last_name}"
         )
-    

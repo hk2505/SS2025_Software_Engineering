@@ -11,5 +11,4 @@ if __name__ == "__main__":
     experiment.add_subject(subject)
     experiment.add_examiner(examiner)
 
-    # Ergebnis ausgeben
     print(experiment)
