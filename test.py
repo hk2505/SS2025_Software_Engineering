@@ -1,14 +1,15 @@
-from my_classes import Subject, Supervisor, Experiment
+from my_classes import Subject, Examiner, Experiment
+
 if __name__ == "__main__":
 
-    # Erstellen eines Leistungstests
-    supervisor = Supervisor("FirstName", "LastName")
-    subject = Subject("FirstName", "LastName", "female", 30)
-    subject.estimate_max_hr()
+    # Erstellen eines Prüfers und einer Testperson
+    examiner = Examiner("Hannah", "Kleutgens", "26.04.2005")  # keine Geburtsdaten notwendig
+    subject = Subject("Max", "Müller", "male", 25, "24.03.2000")  # Alter wird direkt übergeben
 
-    experiment = Experiment("Leistungstest", "2021-01-01")
+    # Experiment erstellen
+    experiment = Experiment("Leistungstest", "2025-04-03")
     experiment.add_subject(subject)
-    experiment.add_supervisor(supervisor)
+    experiment.add_examiner(examiner)
 
-    # Ausgabe der Informationen
+    # Ergebnis ausgeben
     print(experiment)
