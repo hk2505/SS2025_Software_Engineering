@@ -1,19 +1,26 @@
 
-#Angepasster Code 
+#Angepasster Code
+from datetime import date #Importiere das Modul für Datumsoperationen
     #Superklasse Person mit den Attributen Vorname und Nachname 
 class Person:
      def __init__(self, first_name, last_name,Geburtsdatum):
         self.first_name = first_name
         self.last_name = last_name
         self.__birthdate = Geburtsdatum #private Variable, die nicht von außen zugänglich ist
+
+     
+     def get_age(self):
+        # Berechnung des Alters in Jahren
+        days_difference = (date.today() - self.__birthdate).days
+        return days_difference // 365  # In ganze Jahre umwandeln 
         
 
     # Subklasse Subject mit den Attributen Geschlecht, Alter und Maximalpuls
 class Subject(Person):
-    def __init__(self, first_name, last_name,Geburtsdatum, sex, age,):
+    def __init__(self, first_name, last_name,Geburtsdatum, sex,):
         super().__init__(first_name, last_name,Geburtsdatum) #ruft direkt die Initialisierung der Superklasse auf
         self.sex = sex
-        self.age = age
+        self.age = self.get_age() 
         self.max_hr_bpm = self.estimate_max_hr()
 
     def estimate_max_hr(self):
