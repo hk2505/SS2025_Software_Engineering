@@ -1,36 +1,45 @@
-class Subject():
-    def __init__(self, first_name, last_name, sex, age):
+from datetime import date
+
+class Person():
+    def __init__(self, first_name, last_name,  birth_date):
         self.first_name = first_name
         self.last_name = last_name
+        self.__birth_date = birth_date
+
+    def Age(self):
+        y, m, d = map(int, self.__birth_date.split("-"))
+        t = date.today()
+
+        return t.year -y - ((t.month, t.day) < (m,d))
+
+class Subject(Person):
+
+    def __init__(self, first_name, last_name, birth_date, sex):
+        super().__init__(first_name, last_name, birth_date)
         self.sex = sex
-        self.age = age
         self.max_hr = self.estimate_max_hr()
-        
+
+
     def estimate_max_hr(self):
-        """A function that estimates the maximum heart rate of a subject"""
+        age = self.get_age()
         if self.sex == "male":
-            max_hr_bpm = 223 - 0.9 * self.age
+            return 223 - 0.9 * age
         elif self.sex == "female":
-            max_hr_bpm = 226 - 1.0 * self.age
-        else:
-            max_hr_bpm = input("Enter maximum heart rate:")
+            return 226 - 1.0 * age
 
-        return(max_hr_bpm)
+class Examiner(Person):
+    def __init__(self, first_name, last_name, birth_date):
+        super().__init__(first_name ,last_name , birth_date)
+    
 
-class Supervisor():
-
-    def __init__(self, first_name, last_name):
-        self.first_name = first_name
-        self.last_name = last_name
-
-class Experiment():
+class Experiment:
     def __init__(self, name, date):
         self.name = name
         self.date = date
 
 
     def add_subject(self, subject):
-        self.subject = subject
+        self.subject.append = subject
 
-    def add_supervisor(self, supervisor):
-        self.supervisor = supervisor
+    def add_examiner(self, examiner):
+        self.supervisor.append = examiner
